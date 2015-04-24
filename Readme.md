@@ -1,0 +1,1 @@
+Created to test ability to create pdf with japanese symbols
