@@ -1,33 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "pdftest", ".", "{6A1D274F-32D5-4538-80AC-2D1CA08E0B58}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/pdftest"
-		Debug.AspNetCompiler.PhysicalPath = "..\pdftest\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\pdftest\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/pdftest"
-		Release.AspNetCompiler.PhysicalPath = "..\pdftest\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\pdftest\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "65398"
-	EndProjectSection
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "PdfExporter", "PdfExporter.njsproj", "{31BC13CE-F747-4121-8CCA-FF303B1D151E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A1D274F-32D5-4538-80AC-2D1CA08E0B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A1D274F-32D5-4538-80AC-2D1CA08E0B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31BC13CE-F747-4121-8CCA-FF303B1D151E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31BC13CE-F747-4121-8CCA-FF303B1D151E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31BC13CE-F747-4121-8CCA-FF303B1D151E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31BC13CE-F747-4121-8CCA-FF303B1D151E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
