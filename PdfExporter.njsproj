@@ -16,11 +16,14 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
-    <Content Include="index.html" />
+    <Content Include="fonts\ipaexg.ttf" />
+    <Content Include="fonts\ProximaNovaRegular.ttf" />
+    <Content Include="fonts\ProximaNovaSemibold.ttf" />
+    <Content Include="fonts\simfang.ttf" />
     <Content Include="package.json" />
     <Content Include="Readme.md" />
     <Compile Include="index.js" />
-    <Compile Include="pdfExporter.js" />
+    <Compile Include="pdfKitExporter.js" />
     <Compile Include="pdfMakeExporter.js" />
     <Compile Include="server.js" />
     <Content Include="fonts\readme.md" />

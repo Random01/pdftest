@@ -1,6 +1,6 @@
 ﻿var PDFDocument = require('pdfkit');
 
-function pdfExporter(documentDefinition, stream) {
+function pdfKitExporter(documentDefinition, stream) {
 
     var doc = new PDFDocument();
 
@@ -47,4 +47,4 @@ var chiniseLoremIpsum =
     '熿熼燛 鈁陾靰 箖緌翢 彔抳 蔏, 楋 恦拻 稨窨箌 羳蟪蠁 韎餀 綧 垺垼娕 鼀齕櫌, 螷蟞 鋟 蜭蜸覟 潿熥獘 笓粊紒 藙藨蠈 鳻嶬幧 蛚袲褁 鉾銇 壿, 驐鷑鷩 躨钀钁 笀耔 徲, 嗛嗕塨 榶榩榿 砫粍紞 戣椵 箷 馺骱魡 齹鑶鸓 搋朠楟 箑箖 磏, 憢憉摮 珶珸珿 覛谼貆 鋄銶 蔏 薝薢蟌 輲輹輴 蠬襱覾 銪 廞徲, 跠 芘芛 嬽巃攇 萷葋蒎 紏蚙迻';
       
 
-exports.pdfExporter = pdfExporter;
+exports.pdfKitExporter = pdfKitExporter;
