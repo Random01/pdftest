@@ -2,8 +2,30 @@
     url = require('url'),
     formidable = require('formidable'),
     util = require('util'),
-    pdfMakePrinter = require('pdfmake'),
     fs = require('fs');
+
+/**
+* @param {Object} documentDefinition
+* @returns {Object}
+*/
+function fixDocumentDefinition(documentDefinition) {
+    if (documentDefinition
+        && documentDefinition.content
+        && documentDefinition.content.layout) {
+
+        var hLineWidth = documentDefinition.content.layout.hLineWidth,
+            vLineWidth = documentDefinition.content.layout.vLineWidth,
+            hLineColor = documentDefinition.content.layout.hLineColor,
+            vLineColor = documentDefinition.content.layout.vLineColor;
+
+        documentDefinition.content.layout.hLineWidth = function() { return hLineWidth; };
+        documentDefinition.content.layout.vLineWidth = function() { return vLineWidth; };
+        documentDefinition.content.layout.hLineColor = function() { return hLineColor; };
+        documentDefinition.content.layout.vLineColor = function() { return vLineColor; };
+    }
+
+    return documentDefinition;
+}
 
 function start(exportToPdf) {
     function onRequest(request, response) {
@@ -13,19 +35,11 @@ function start(exportToPdf) {
         if (request.url == '/pdf' && request.method.toLowerCase() == 'post') {
             var form = new formidable.IncomingForm();
             form.parse(request, function (err, fields) {
-                
-                var fileName = fields.fileName;
-                var documentDefinition = JSON.parse(fields.exportData);
-                var fontDescriptors = {
-                    Roboto: {
-                        normal: 'fonts/ProximaNovaRegular.ttf',
-                        bold: 'fonts/ProximaNovaSemibold.ttf',
-                    }
-                };
-                var printer = new pdfMakePrinter(fontDescriptors);
-                var doc = printer.createPdfKitDocument(documentDefinition);
-                doc.pipe(fs.createWriteStream('d:/tmp/' + fileName + '.pdf'));
-                doc.end();
+
+                var docDefinition = fixDocumentDefinition(JSON.parse(fields.exportData));
+                var stream = fs.createWriteStream('d:/tmp/' + fields.fileName + '.pdf');
+
+                exportToPdf(docDefinition, stream);
 
                 response.writeHead(200, { 'Content-Type': 'text/plain' });
                 response.write('Success');

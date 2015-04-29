@@ -20,6 +20,7 @@
     <Content Include="Readme.md" />
     <Compile Include="index.js" />
     <Compile Include="pdfExporter.js" />
+    <Compile Include="pdfMakeExporter.js" />
     <Compile Include="server.js" />
     <Content Include="fonts\readme.md" />
   </ItemGroup>

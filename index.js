@@ -1,4 +1,5 @@
 ﻿var server = require('./server'),
-    pdfExporter = require('./pdfExporter');
+    pdfExporter = require('./pdfExporter'),
+    pdfMakeExporter = require('./pdfMakeExporter');
 
-server.start(pdfExporter.exportToPdf);
+server.start(pdfMakeExporter.pdfMakeExporter);
