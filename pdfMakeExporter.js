@@ -1,8 +1,5 @@
 ﻿var pdfMakePrinter = require('pdfmake');
 
-/**
-*
-*/
 function pdfMakeExporter(documentDefinition, stream) {
     var fontDescriptors = {
         Roboto: {

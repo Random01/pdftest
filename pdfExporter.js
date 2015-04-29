@@ -5,10 +5,8 @@ function pdfExporter(documentDefinition, stream) {
     var doc = new PDFDocument();
 
     doc.pipe(stream);
-
     doc.fontSize(10)
-        //.font('fonts/ipaexg.ttf')
-        .text(englishLoremIpsum, 10, 10);
+        .text('Hello!', 10, 10);
 
     doc.end();
 }

@@ -32,19 +32,34 @@ function start(exportToPdf) {
         
         console.log('Request has received');
 
-        if (request.url == '/pdf' && request.method.toLowerCase() == 'post') {
-            var form = new formidable.IncomingForm();
-            form.parse(request, function (err, fields) {
+        if (request.url == '/pdf') {
 
-                var docDefinition = fixDocumentDefinition(JSON.parse(fields.exportData));
-                var stream = fs.createWriteStream('d:/tmp/' + fields.fileName + '.pdf');
+            var docDefinition;
 
-                exportToPdf(docDefinition, stream);
+            if (request.method.toLowerCase() == 'post') {
+                var form = new formidable.IncomingForm();
+                form.parse(request, function (err, fields) {
+                    
+                    docDefinition = fixDocumentDefinition(JSON.parse(fields.exportData));
+                    
+                    response.writeHead(200, {
+                        'Content-Type': 'application/pdf'
+                    });
+                    
+                    exportToPdf(docDefinition, response);
+                });
+            }
 
-                response.writeHead(200, { 'Content-Type': 'text/plain' });
-                response.write('Success');
-                response.end();
-            });
+            if (request.method.toLowerCase() == 'get') {
+                docDefinition = { content: 'Hello!' };
+
+                response.writeHead(200, {
+                    'Content-Type': 'application/pdf',
+                    'Content-Disposition': 'attachment; filename=test.pdf'
+                });
+
+                exportToPdf(docDefinition, response);
+            }
 
             return;
         }
